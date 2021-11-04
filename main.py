@@ -2,6 +2,7 @@ import cv2
 from pdf2image import convert_from_path
 from os import path
 import os
+import shutil
 
 scale = 1
 
@@ -22,6 +23,7 @@ class Pdf2Image():
 
     def saveImage(self, images, path):
         images.save(path, 'PNG')
+        # print(f"✔ {path}")
 
 
 class Crop():
@@ -75,5 +77,6 @@ class Crop():
 
 
 if __name__ == '__main__':
-    Pdf2Image()
-    Crop()
+    pdf2Image = Pdf2Image()
+    crop = Crop()
+    shutil.rmtree(crop.pathSource)
